@@ -3,15 +3,22 @@
 
 // import Bprofile from "../../layout/shared/Bprofile";
 
-import NavBar from "../../layout/shared/NavBar";
+import { Helmet } from "react-helmet-async";
+// import NavBar from "../../layout/shared/NavBar";
 import Banner from "../Home/Banner";
+import History from "../../Page/History";
+import BioData from "../../Page/BioData";
 
 
 const Home = () => {
     return (
 <div>
- 
-    <Banner></Banner>
+ <Helmet>
+    <title>Bd Matrimonial | Home</title>
+ </Helmet>
+ <Banner></Banner>
+            <History></History>
+            <BioData></BioData>
     
 </div>
 

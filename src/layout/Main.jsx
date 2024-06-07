@@ -12,9 +12,10 @@ const Main = () => {
         <div>
            <NavBar></NavBar>
             <Outlet></Outlet>
-            <Banner></Banner>
+            {/* <Banner></Banner>
+            
             <History></History>
-            <BioData></BioData>
+            <BioData></BioData> */}
             <Footer></Footer>
         </div>
     );

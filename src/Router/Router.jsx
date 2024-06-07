@@ -10,6 +10,11 @@ import About from "../Page/About";
 import Contact from "../Page/Contact";
 import NavBar from "../layout/shared/NavBar";
 import Home from "../Page/Home/Home";
+import BioData from "../Page/BioData";
+import History from "../Page/History";
+import FemaleData from "../Page/Data/FemaleData";
+import MaleData from "../Page/Data/MaleData";
+import AllData from "../Page/Data/AllData";
 
 export const router = createBrowserRouter([
 
@@ -18,10 +23,11 @@ export const router = createBrowserRouter([
     element: <Main></Main>,
     children: [
 
-      {
-        path: "/",
-        element: <NavBar></NavBar>
-      }, 
+      // {
+      //   path: "/",
+      //   element: <NavBar></NavBar>
+       
+      // }, 
       {
         path: "/home",
         element: <Home></Home>
@@ -37,6 +43,26 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>
+      },
+      {
+        path: "/biodata",
+        element: <BioData></BioData>
+      },
+      {
+        path: "/history",
+        element: <History></History>
+      },
+      {
+        path: "/femaledata",
+        element: <FemaleData></FemaleData>
+      },
+      {
+        path: "/maledata",
+        element: <MaleData></MaleData>
+      },
+      {
+        path: "/alldata",
+        element: <AllData></AllData>
       },
       {
         path: "/contact",
