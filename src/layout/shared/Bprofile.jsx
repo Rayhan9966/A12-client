@@ -2,16 +2,16 @@ import { Button } from '@mui/material';
 import React from 'react';
 
 const Bprofile = ({profile}) => {
-    const{BiodataId, BiodataType, ProfileImage ,PermanentDivisionName ,Age, Occupation}=profile;
+    const{_id, BiodataType, ProfileImage ,PermanentDivisionName ,Age, Occupation}=profile;
     return (
         <div>
             <div className="rounded-md shadow-md sm:w-96 dark:bg-gray-50 dark:text-gray-800">
 	<div className="flex items-center justify-between p-3">
 		<div className="flex items-center space-x-2">
-			<h2 style={{borderRadius:'0 200px 200px 200px'}} className="object-cover object-center w-10 h-10 rounded-full shadow-sm font-bold text-black dark:bg-green-500 dark:border-gray-400 ml-2" > ID:{BiodataId}</h2>
+			<h2 style={{borderRadius:'0 200px 200px 200px'}} className="object-cover object-center w-10 h-10 rounded-full shadow-sm font-bold text-black dark:bg-green-500 dark:border-gray-400 ml-2" > ID:{_id}</h2>
 			<div className="-space-y-1">
 				<h2 className="text-sm font-semibold leading-none">{BiodataType}</h2>
-				<span className="inline-block text-xs leading-none dark:text-gray-600">Somewhere</span>
+				{/* <span className="inline-block text-xs leading-none dark:text-gray-600">Somewhere</span> */}
 			</div>
 		</div>
 		<button title="Open options" type="button">
