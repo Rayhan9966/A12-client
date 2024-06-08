@@ -38,7 +38,7 @@ logOut()
         
       <div className='flex gap-4 ml-80 font-bold'>
       {user && <>
-        <Link to='/dashboard'><h1>DashBoard</h1></Link>
+        <Link to='/dashboard/editbiodata'><h1>DashBoard</h1></Link>
         
         </>}
       <Link to='/home'><h1>Home</h1></Link>

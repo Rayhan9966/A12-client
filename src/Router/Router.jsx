@@ -18,6 +18,7 @@ import AllData from "../Page/Data/AllData";
 import ViewDetails from "../Page/Home/ViewDetails";
 import PrivateRoute from "./ProtectectedRoute/PrivateRoute";
 import DashBoard from "../Page/DashBoard/DashBoard";
+import EditBiodata from "../Page/DashBoard/EditBiodata";
 // import Register from "../Page/Register";
 // import Registration from "../Page/Registration";
 
@@ -91,6 +92,21 @@ export const router = createBrowserRouter([
         element: <Contact></Contact>
       }
       
+    ]
+  },
+  {
+    
+      path: "/dashboard",
+      element: <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ,
+    children:[
+
+      {
+        path:'editbiodata',
+        element:<EditBiodata></EditBiodata>
+      }
     ]
   }
 ]);
