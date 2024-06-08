@@ -4,7 +4,7 @@ const UseBIo = () => {
     const [bdata,setBdata]=useState([]);
     const [loading,setLoading]=useState(true);
     useEffect(()=>{
-        fetch('BData.json')
+        fetch('http://localhost:5000/biodata')
         .then(res=>res.json())
         .then(data=>{
             setBdata(data);

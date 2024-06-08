@@ -15,6 +15,8 @@ import History from "../Page/History";
 import FemaleData from "../Page/Data/FemaleData";
 import MaleData from "../Page/Data/MaleData";
 import AllData from "../Page/Data/AllData";
+// import Register from "../Page/Register";
+import Registration from "../Page/Registration";
 
 export const router = createBrowserRouter([
 
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
         {
         path: "/login",
         element: <Login></Login>
+      }, 
+        {
+        path: "/registration",
+        element: <Registration></Registration>
       }, 
       // {
       //   path: "/signup",

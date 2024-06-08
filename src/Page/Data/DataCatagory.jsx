@@ -7,7 +7,7 @@ const DataCatagory = ({bdata}) => {
             {
 
 bdata.map(profile=><Bprofile
-    key={profile.BiodataId}
+    key={profile._id}
     profile={profile}>
 
     </Bprofile>

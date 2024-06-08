@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../shared/Footer';
 import Banner from '../Page/Home/Banner';
 // import Home from '../Page/Home/Home';
@@ -8,15 +8,18 @@ import History from '../Page/History';
 import BioData from '../Page/BioData';
 
 const Main = () => {
+    const location =useLocation();
+    console.log(location);
+    const noHeaderFooter= location.pathname.includes('login')
     return (
         <div>
-           <NavBar></NavBar>
+         { noHeaderFooter||  <NavBar></NavBar>}
             <Outlet></Outlet>
             {/* <Banner></Banner>
             
             <History></History>
             <BioData></BioData> */}
-            <Footer></Footer>
+            { noHeaderFooter|| <Footer></Footer>}
         </div>
     );
 };
