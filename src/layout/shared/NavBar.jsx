@@ -1,12 +1,23 @@
 
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 import { Button } from 'antd';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Page/Provider/AuthProvider';
 // import MenuIcon from '@mui/icons-material/Menu';
 // import MenuIcon from '@mui/icons-material/Menu';
 
 const NavBar = () => {
+    const {user,logOut}= useContext(AuthContext);
+    const handleLogOut=()=>{
+logOut()
+.then(() => { })
+.catch(error => console.log(error));
+
+
+
+
+    }
     return (
         <div>
            <Box sx={{ flexGrow: 1 }}>
@@ -21,7 +32,7 @@ const NavBar = () => {
           >
             {/* <MenuIcon></MenuIcon> */}
           </IconButton>
-     <div className='fixed flex z-10 bg-opacity-30 bg-base-100'>
+     <div className='fixed flex z-10 bg-opacity-30 '>
      <h1 className='font-bold'>BdMATRIMONY</h1>
         <div className=' flex justify-evenly ml-50 '>
         
@@ -42,7 +53,13 @@ const NavBar = () => {
      
           
         </div>
-       <div className='ml-20'><Link to='/login'> <Button className='mr-70' color="inherit">Login</Button></Link></div>
+      {
+        user? <>
+        <button onClick={handleLogOut} className="px-6 py-2 ml-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-400 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+        Logout
+        </button></> : <>
+        <li><Link to='/login'>Login</Link></li></>
+      }
      </div>
         </Toolbar>
       </AppBar>

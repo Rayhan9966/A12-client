@@ -5,10 +5,10 @@ import {
 import Main from "../layout/Main";
 // import Home from "../Page/Home/Home";
 import Login from "../Page/Login";
-// import SignUp from "../Page/SignUp";
+import SignUp from "../Page/SignUp";
 import About from "../Page/About";
 import Contact from "../Page/Contact";
-import NavBar from "../layout/shared/NavBar";
+// import NavBar from "../layout/shared/NavBar";
 import Home from "../Page/Home/Home";
 import BioData from "../Page/BioData";
 import History from "../Page/History";
@@ -16,7 +16,7 @@ import FemaleData from "../Page/Data/FemaleData";
 import MaleData from "../Page/Data/MaleData";
 import AllData from "../Page/Data/AllData";
 // import Register from "../Page/Register";
-import Registration from "../Page/Registration";
+// import Registration from "../Page/Registration";
 
 export const router = createBrowserRouter([
 
@@ -38,14 +38,14 @@ export const router = createBrowserRouter([
         path: "/login",
         element: <Login></Login>
       }, 
-        {
-        path: "/registration",
-        element: <Registration></Registration>
-      }, 
-      // {
-      //   path: "/signup",
-      //   element: <SignUp></SignUp>
-      // },
+      //   {
+      //   path: "/registration",
+      //   element: <Registration></Registration>
+      // }, 
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>
+      },
       {
         path: "/about",
         element: <About></About>

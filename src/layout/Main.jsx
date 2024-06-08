@@ -16,9 +16,10 @@ const Main = () => {
          { noHeaderFooter||  <NavBar></NavBar>}
             <Outlet></Outlet>
             {/* <Banner></Banner>
-            
+            Plead
             <History></History>
             <BioData></BioData> */}
+           <h1 className='text-2xl font-bold text-center'>Welcome to Bd Matrimonial for better view please log in!!</h1>
             { noHeaderFooter|| <Footer></Footer>}
         </div>
     );

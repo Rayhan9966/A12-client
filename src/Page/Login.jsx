@@ -1,5 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from './Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     // const handleLogin=event=>{
@@ -8,12 +10,37 @@ const Login = () => {
     //     const email=form.email.value;
     //     const password= form.password.value;
     //     console.log(email,password);
+    // const [disabled, setDisabled] = useState(true);
+    const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/home";
+
+    // useEffect(() => {
+    //     loadCaptchaEnginge(6);
+    // }, [])
     
 	const handleLogin=(e)=>{
         e.preventDefault()
         const email=e.target.email.value;
         const password=e.target.password.value;
-console.log(email,password)
+console.log(email,password);
+signIn(email, password)
+.then(result => {
+    const user = result.user;
+    console.log(user);
+    Swal.fire({
+        title: 'User Login Successful.',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    });
+    navigate(from, { replace: true });
+})
     };
     return (
     //     <form className="flex mt-20 w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
@@ -150,7 +177,9 @@ console.log(email,password)
                  <a rel="noopener noreferrer" href="#">Forgot Password?</a>
              </div>
          </div>
-         <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">Sign in</button>
+         {/* <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">
+            Sign in</button> */}
+            <input  className="btn btn-primary" type="submit" value="Login" />
      </form>
      <div className="flex items-center pt-4 space-x-1">
          <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
@@ -172,7 +201,7 @@ console.log(email,password)
          </button>
      </div>
      <p className="text-xs text-center sm:px-6 dark:text-gray-600">Don't have an account?
-         <Link to='/registration' rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign up</Link>
+         <Link to='/signup' rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign up</Link>
      </p>
  </div>
          </div>
