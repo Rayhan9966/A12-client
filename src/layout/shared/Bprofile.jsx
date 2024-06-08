@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Bprofile = ({profile}) => {
     const{_id, BiodataType, ProfileImage ,PermanentDivisionName ,Age, Occupation}=profile;
@@ -57,7 +58,7 @@ const Bprofile = ({profile}) => {
 				</span>
 			</div>
             <div className='ml-12 mt-3'>
-            <Button  variant="contained">View Profile</Button>
+            <Link to='/viewdetails'><Button  variant="contained">View Profile</Button></Link>
             </div>
           
 		</div>

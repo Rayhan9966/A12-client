@@ -37,16 +37,18 @@ logOut()
         <div className=' flex justify-evenly ml-50 '>
         
       <div className='flex gap-4 ml-80 font-bold'>
-      <Link to='/dashboard'><h1>DashBoard</h1></Link>
+      {user && <>
+        <Link to='/dashboard'><h1>DashBoard</h1></Link>
+        
+        </>}
       <Link to='/home'><h1>Home</h1></Link>
        <Link to='/about'><h1>About</h1></Link>
        <Link to='/contact'><h1>Contact</h1></Link>
        <Link to='/biodata'><h1>BioData</h1></Link>
       
        <Link to='/history'><h1>History</h1></Link>
-       {/* <Link to='/femaledata'><h1>Female Data</h1></Link>
-       <Link to='/maledata'><h1>Male Data</h1></Link> */}
-       <Link to='/alldata'><h1>All Data</h1></Link>
+      
+      {user && <> <Link to='/alldata'><h1>All Data</h1></Link></>}
 
        
       </div>
@@ -55,9 +57,9 @@ logOut()
         </div>
       {
         user? <>
-        <button onClick={handleLogOut} className="px-6 py-2 ml-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-400 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+       <Link to='/home'> <button onClick={handleLogOut} className="px-6 py-2 ml-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-400 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
         Logout
-        </button></> : <>
+        </button></Link></> : <>
         <li><Link to='/login'>Login</Link></li></>
       }
      </div>
