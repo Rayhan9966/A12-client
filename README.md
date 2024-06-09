@@ -1,8 +1,11 @@
-# React + Vite
+# Bd Matrimonial
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Assignment Category/Variant Is: Assignment12_category_0018
+Admin email: rayhancse16@gmail.com
+Admin Password:PhB9@12
+Font-end Live Site Link:
 
-Currently, two official plugins are available:
+CLient side git link: https://github.com/programming-hero-web-course1/b9a12-client-side-Rayhan9966
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Sever side git link: https://github.com/programming-hero-web-course1/b9a12-server-side-Rayhan9966
+
