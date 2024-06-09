@@ -1,8 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UseBIo from '../../Hooks/UseBIo';
+import Swal from 'sweetalert2';
+import { useLoaderData } from 'react-router-dom';
+// import { axiosSecure } from '../../Hooks/useAxiosSecure';
 
 const EditBiodata = () => {
-    const[bdata]=UseBIo();
+  // const LoadedBiodata = useLoaderData();
+  //   const[biodata,setBiodata]=useState(LoadedBiodata);
+    
+    const[bdata,refetch]=UseBIo();
+
+    const handleDelete= _id =>{
+        console.log(_id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                // axiosSecure.delete(`/biodata/${id}`)
+                // .then(res=>{
+                //     console.log(res);
+                // })
+                fetch(`http://localhost:5000/biodata/${_id}`,{
+                    method: 'DELETE'
+                })
+              //    .then(res=>{
+              //           console.log(res);
+              //       })
+              // Swal.fire({
+              //   title: "Deleted!",
+              //   text: "Your file has been deleted.",
+              //   icon: "success"
+              // });
+              
+            //     .then(res=>res.json())
+            // .then(data =>{
+            //     console.log(data);
+            //     if (data.deletedCount> 0){
+            //         Swal.fire(
+            //                "Deleted!",
+            //                  "Your Post has been deleted.",
+            //                "success"
+            //               );
+            //               const remainingBioData = biodata.filter(biodata =>
+            //                 biodata._id!== _id);
+            //                 setBiodata(remainingBioData);
+            //     }
+            // })
+            .then(res => {
+              if (res.data.deletedCount > 0) {
+                  refetch();
+                  Swal.fire({
+                      title: "Deleted!",
+                      text: "Your file has been deleted.",
+                      icon: "success"
+                  });
+              }
+          })
+            
+            
+            }
+          });
+    }
     return (
         <div>
            <h2 className='text-2xl font-sm-bold text-center'>Edited Table</h2>
@@ -149,7 +213,7 @@ const EditBiodata = () => {
                         </td>
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-6">
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none">
+                            <button onClick={()=> handleDelete(bdata._id)} className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
