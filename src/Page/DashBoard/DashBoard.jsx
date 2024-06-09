@@ -1,4 +1,4 @@
-import { FaDatabase, FaEdit, FaPhone, FaUser} from "react-icons/fa";
+import { FaBook, FaDatabase, FaEdit, FaPaypal, FaPhone, FaUser} from "react-icons/fa";
 // import { NavLink, Outlet } from "react-router-dom";
 // import useCart from "../hooks/useCart";
 // import useAdmin from "../hooks/useAdmin";
@@ -6,6 +6,7 @@ import { FaDatabase, FaEdit, FaPhone, FaUser} from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useContext } from "react";
+import UseBIo from "../../Hooks/UseBIo";
 
 
 const DashBoard = () => {
@@ -15,16 +16,46 @@ logOut()
 .then(() => { })
 .catch(error => console.log(error));
     }
+
+    const [bdata]=UseBIo();
     // const [cart] = useCart();
 
     // // TODO: get isAdmin value from the database
-    // const [isAdmin] = useAdmin();
+    const isAdmin = true;
 
     return (
         <div className="flex">
             {/* dashboard side bar */}
             <div className="w-64 min-h-screen bg-blue-400">
                 <ul className="menu p-4">
+                    {
+                        isAdmin?<>
+                        </>
+                        :
+                        <>
+                    <div className="divider"></div>
+                    <li>
+                        <NavLink to="/dashboard/editbiodata">
+                            <FaBook></FaBook>
+                            Admin Dashboard</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/editbiodata">
+                            <FaUser></FaUser>
+                            Manage User</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/contact">
+                            <FaDatabase></FaDatabase>
+                            Aproved Premium</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/contact">
+                            <FaPhone></FaPhone>
+                            Contact</NavLink>
+                    </li>
+                        </>
+                    }
                     {/* {
                         isAdmin ? <>
                             <li>
@@ -104,6 +135,17 @@ logOut()
                             <FaDatabase></FaDatabase>
                             Favourite BioData</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/dashboard/contact">
+                            <FaPaypal></FaPaypal>
+                            CheckOut Payment</NavLink>
+                    </li>
+                    {/* //admin */}
+                    
+                   
+                    
+
+
                     {/* <li>
                         <NavLink to="/home">
                             <FaEnvelope></FaEnvelope>
