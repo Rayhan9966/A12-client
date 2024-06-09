@@ -33,7 +33,10 @@ logOut()
             {/* <MenuIcon></MenuIcon> */}
           </IconButton>
      <div className='fixed flex z-10 bg-opacity-30 '>
+      <div className='flex'>
+      <img className="w-8 h-8 fill-current  gap-4 rounded-2xl" src="https://i.postimg.cc/25YQn8R4/Wedding-Bangladesh-01.jpg" alt="" />
      <h1 className='font-bold'>BdMATRIMONY</h1>
+      </div>
         <div className=' flex justify-evenly ml-50 '>
         
       <div className='flex gap-4 ml-80 font-bold'>
